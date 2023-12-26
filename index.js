@@ -20,6 +20,7 @@ app.get('/quiz.css',(req,res)=>{
 
 app.post('/tokv',(req,res)=>{
     try{
+        console.log(dc.jwtDecode(req.body.yok))
         res.send({
             "error":"false",
             "dc":dc.jwtDecode(req.body.yok)
