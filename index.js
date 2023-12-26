@@ -14,6 +14,10 @@ app.get('/fe.js',(req,res)=>{
     res.sendFile(__dirname+"/fe.js");
 })
 
+app.get('/quiz.css',(req,res)=>{
+    res.sendFile(__dirname+"/quiz.css")
+})
+
 app.post('/tokv',(req,res)=>{
     try{
         res.send({

@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="quiz.css">
+    <link rel="stylesheet" href="/quiz.css">
     <title>Tessaract Mod</title>
 </head>
 <body id="body">
-    <div>
+    <div id="led">
         <div id="hed">
-            <label for="tok" id="lab">GIVE ME YOUR TOKEN AND SEE THE MAGIC</label><br/>
-            <textarea id="tok" style="width:200px;height:100px;margin-left:50px;"></textarea><br/>
-            <input type="button" value="submit" onclick="token_verifier()" />
+            <label for="tok" id="lab" style="padding-bottom:10px;">GIVE ME YOUR TOKEN AND SEE THE MAGIC</label><br/>
+            <textarea class="textarea" id="tok" style="width:200px;height:100px;margin-left:50px;"></textarea><br/>
+            <input type="button" id="login" value="Login" onclick="token_verifier()" />
         </div>
     </div>
 </body>

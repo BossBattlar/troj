@@ -1,49 +1,146 @@
+#body{
+    position: relative;
+    color: rgb(185, 138, 43) ;
+    background-color: rgba(6, 6, 6, 0.916);
+}
+#led{
+    display: flex;
+    flex-direction:column;
+    height: 300px;
+    width: 400px;
+    border: 1px solid rgb(0, 0, 0);
+    align-items: center;
+    margin: auto;
+    margin-top: 25vh;
+    background-color: rgba(57, 174, 159, 0.315);
+    border-radius: 25px;
+}
+#hed{
+    position: relative;
+    top: 10vh;
+
+}
+#login{
+    padding: 10px 20px;
+        margin-top: 20px;
+        margin-left: 25%;
+        margin-right: auto;
+        width: 50%;
+        background-color: rgba(0,0,0,0.5);
+        box-shadow: inset -3px -3px rgba(0,0,0,0.5);
+        color:white;
+        border: none;
+        outline: none;
+        border-radius: 20px;
+        font-size:1rem;
+}
+.textarea{
+    color: aqua;
+    border-radius: 1rem;
+    border: 2px solid rgb(115, 110, 110);
+    background-color: rgba(0, 0, 0, 0.886);
+
+}
+::-webkit-scrollbar {
+    display:none;
+}
+
 .nav{
     display: flex;
     background:rgba(10, 172, 184, 0.737);
     text-align: center ;
-    }
-    .nav ul{
+}
+.nav ul{
     display: inline-flex;
     list-style: none;
     color: #fff;
-    }
-    .nav ul li{
+}
+.nav ul li{
     width: 80px;
     padding:15px;
-    }
-    .nav ul li a{
+}
+.nav ul li a{
     text-decoration: none;
     color: #fff;
-    }
-    .nav ul li:hover{
+}
+.nav ul li:hover{
     background: rgba(10, 172, 184, 1);
-    }
-    .sub-menu-1{
-    display: none;
-    }
-    .nav ul li:hover .sub-menu-1{
+}
+.sub-menu-1{
+    display: none; 
+}
+.nav ul li:hover .sub-menu-1{
     display: block;
     position: absolute;
     background: rgba(10, 172, 184, 0.737);
     margin-top: 15px;
     margin-left: -55px;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.22);
-    }
-    .nav ul li:hover .sub-menu-1 ul{
+}
+.nav ul li:hover .sub-menu-1 ul{
     display: block;
     margin: 10px;
     padding: 10px;
     align-items: left;
-    }
-    .nav ul li:hover .sub-menu-1 ul li{
+}
+.nav ul li:hover .sub-menu-1 ul li{
     border-bottom: 1px dotted #fff;
     border-radius: 0%;
     text-align: left;
-    }
-    .nav ul li:hover .sub-menu-1 ul li:last-child{
+}
+.nav ul li:hover .sub-menu-1 ul li:last-child{
     border-bottom: 0;
-    }
-    .nav ul li:hover .sub-menu-1 ul li:hover{
+}
+.nav ul li:hover .sub-menu-1 ul li:hover{
     color: blue;
-    }
+}
+
+
+/* homepage */
+#D1{
+    width:100%;
+}
+
+#details{
+    display: table-cell;
+    width: 100%;
+}
+#img{
+    position: relative;
+    height: auto;
+    width:200px;
+    margin-left: 35%;
+}
+#Logout{
+    display: table-cell;
+    min-width: calc(50vw);
+    vertical-align: top;
+}
+#Logout input{
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    margin-left: 25%;
+    margin-right: auto;
+    width: 50%;
+    background-color: rgba(155, 186, 43, 0.5);
+    box-shadow: inset -3px -3px rgba(0,0,0,0.5);
+    color:white;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size:1rem;
+}
+#Login input:hover{
+    color: orange;
+    background-color: blue;
+}
+
+#components{
+    position: relative;
+    background-color:blanchedalmond;
+    width: 90%;
+    padding: 5%;
+}
+#components input{
+
+}
