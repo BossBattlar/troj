@@ -3,7 +3,7 @@ var token;
 var url;
 
 
-async function token_verifier(tok){
+async function token_verifier(){
         const li =await fetch("/tokv",{
             method:"POST",
             headers: {
@@ -11,23 +11,23 @@ async function token_verifier(tok){
             },
             body:JSON.stringify({
                 "give_me":"data",
-                // "yok":tol.value
-                "yok":window.localStorage.getItem('token')
+                "yok":tol.value
             })
         }).then(res=>res.json()).then((d)=>{
             window.localStorage.setItem("rno",d['dc']['username']);
             if(d['error']=='false'){
                 localStorage.setItem("token", tol.value);
+                // window.localStorage.getItem('token');
                 document.getElementById('body').innerHTML=`    <div>
                 <div id="D1">
                     <div id="details"> 
-                        <h2>WELCOME </h2>
-                        <p>${d['dc']['name']}</p>
-                        <p>Collage: ${d['dc']['collegeName']}</p>
-                        <p>Roll No: ${d['dc']['username']}</p>    
+                        <h2>WELCOME</h2></br>
+                        <h3>${d['dc']['name']}</h3></br>
+                        <p>Collage: ${d['dc']['collegeName']}</p></br>
+                        <p>Roll No: ${d['dc']['username']}</p></br>
                     </div>
                     <div id="Logout">
-                            <img src="${window.localStorage.rno.slice(0,4)?"https://teleuniv.net.in/sanjaya/student-images/":"http://teleuniv.net.in:81/sanjaya/student-images/"}${window.localStorage.rno}.jpg" id="img" alt="your img">
+                            <img src="${window.localStorage.rno.slice(0,4)=='2453'?"https://teleuniv.net.in/sanjaya/student-images/":"http://teleuniv.net.in:81/sanjaya/student-images/"}${window.localStorage.rno}.jpg" id="img" alt="your img">
                             <input type="button" value="Log out" onclick="Logout()" />
                     </div>
                 </div>
@@ -59,12 +59,14 @@ async function dat(){
                 tex+=`<input type="button" value="${d[i]}" onclick=units(${i}) />`;
             }
             document.getElementById('components').innerHTML=tex;
+            console.log('hello')
         }else{
             
         }
     })
 }
 async function units(l){
+    window.localStorage.setItem('uid',l)
     const ref= await fetch("/units",{
         method:"POST",
         headers: {
@@ -81,7 +83,7 @@ async function units(l){
             for(i in d){
                 tex+=`<input type="button" value="${d[i]}" onclick=topics(${i}) />`;
             }
-            document.getElementById('components').innerHTML=tex;
+            document.getElementById('components').innerHTML=tex+`<div id='back'><input type='button' value='back' onclick='dat()' /></div>`;
         }else{
             console.log('error')
         }
@@ -123,7 +125,7 @@ async function topics(l){
                 bdys+=lisi
             }
             bdys=bdys+bdye
-            document.getElementById('components').innerHTML=bdys;
+            document.getElementById('components').innerHTML=`<div id='back'><input type='button' value='back' onclick='dat()' /></div>`+bdys;
         }else{
             
         }
@@ -135,8 +137,14 @@ async function Logout(){
     window.location.href="/"
 }
 
-console.log('window loaded')
-window.localStorage.setItem('token','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlcnJvciI6ZmFsc2UsInVzZXJuYW1lIjoiMjQ1MzIyNzMzMDYxIiwic3ViIjoxMjM3LCJyb2xlIjoiU1RVREVOVCIsImNvbGxlZ2VJZCI6MiwiY29sbGVnZU5hbWUiOiJOR0lUIiwibmFtZSI6IlRIRU5FVEkgQUJISVJBTSBSRUREWSIsImlhdCI6MTcwMzU5ODI5MSwiZXhwIjoxNzAzNjE5ODkxfQ.p91Fjgmbejl26KiYHDmnDwxCWQ4yrJWKEPE-riThBSY')
-token_verifier()
+if(window.localStorage.getItem('token')){
+        tol.value= window.localStorage.getItem('token');
+        token_verifier()
+}
 
-console.log('token set')
+// console.log('window loaded')
+// window.localStorage.setItem('token','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlcnJvciI6ZmFsc2UsInVzZXJuYW1lIjoiMjQ1MzIyNzMzMDYxIiwic3ViIjoxMjM3LCJyb2xlIjoiU1RVREVOVCIsImNvbGxlZ2VJZCI6MiwiY29sbGVnZU5hbWUiOiJOR0lUIiwibmFtZSI6IlRIRU5FVEkgQUJISVJBTSBSRUREWSIsImlhdCI6MTcwMzU5ODI5MSwiZXhwIjoxNzAzNjE5ODkxfQ.p91Fjgmbejl26KiYHDmnDwxCWQ4yrJWKEPE-riThBSY')
+// token_verifier()
+// console.log('token set')
+
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlcnJvciI6ZmFsc2UsInVzZXJuYW1lIjoiMjQ1NTIyNzQ4MDE2Iiwic3ViIjoxMzMwLCJyb2xlIjoiU1RVREVOVCIsImNvbGxlZ2VJZCI6MywiY29sbGVnZU5hbWUiOiJLTUVDIiwibmFtZSI6IkRJTk5FIFVNRVNIIENIQU5EUkEgUkVERFkiLCJpYXQiOjE3MDM2MDY1NjgsImV4cCI6MTcwMzYyODE2OH0.tRE5M6uygOdprO6LPALO7MixEum7XOkdnqUX_xLsWM0
