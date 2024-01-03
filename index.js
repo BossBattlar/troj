@@ -20,7 +20,6 @@ app.get('/quiz.css',(req,res)=>{
 
 app.post('/tokv',(req,res)=>{
     try{
-        console.log(dc.jwtDecode(req.body.yok))
         res.send({
             "error":"false",
             "dc":dc.jwtDecode(req.body.yok)
@@ -178,5 +177,6 @@ app.get('*',(req,res)=>{
 app.post('*',(req,res)=>{
     res.send({'error':'true'});
 })
+
 
 app.listen(3000,()=>{console.log("server at 3000 is ready sir!")})

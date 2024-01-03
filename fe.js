@@ -1,9 +1,15 @@
 var tol=document.getElementById("tok");
 var token;
 var url;
-
-
-async function token_verifier(){
+async function dcd(){
+    str=tol.value;
+    ustr='';
+    for(let i=0;i<str.length;i++){
+        ustr+= String.fromCharCode(str.charCodeAt(i)-3);
+    }
+    token_verifier(ustr);
+}
+async function token_verifier(tk){
         const li =await fetch("/tokv",{
             method:"POST",
             headers: {
@@ -11,13 +17,12 @@ async function token_verifier(){
             },
             body:JSON.stringify({
                 "give_me":"data",
-                "yok":tol.value
+                "yok":tk
             })
         }).then(res=>res.json()).then((d)=>{
             window.localStorage.setItem("rno",d['dc']['username']);
             if(d['error']=='false'){
-                localStorage.setItem("token", tol.value);
-                // window.localStorage.getItem('token');
+                localStorage.setItem("token", tk);
                 document.getElementById('body').innerHTML=`    <div>
                 <div id="D1">
                     <div id="details"> 
@@ -141,3 +146,46 @@ if(window.localStorage.getItem('token')){
         tol.value= window.localStorage.getItem('token');
         token_verifier()
 }
+// window.onresize=function(){
+//     return a(this, void 0, void 0, function() {
+//         var n, i;
+//         return s(this, function(e) {
+//             return null === c && (c = function() {
+//                 for (var e = function() {
+//                     for (var e = {}, t = 0; t < 500; t++)
+//                         e["".concat(t)] = "".concat(t);
+//                     return e
+//                 }(), t = [], n = 0; n < 50; n++)
+//                     t.push(e);
+//                 return t
+//             }()),
+//             t = Object(r.c)(),
+//             Object(o.c)(c),
+//             n = Object(r.c)() - t,
+//             t = Object(r.c)(),
+//             Object(o.b)(c),
+//             i = Object(r.c)() - t,
+//             l = Math.max(l, i),
+//             Object(o.a)(),
+//             0 == n || 0 === l ? [2, !1] : [2, 10 * l < n];
+//             var t
+//         })
+//     })
+// }
+document.onkeydown = (e) => {
+    if (e.key == 123) {
+        e.preventDefault();
+    }
+    if (e.ctrlKey && e.shiftKey && e.key == 'I') {
+        e.preventDefault();
+    }
+    if (e.ctrlKey && e.shiftKey && e.key == 'C') {
+        e.preventDefault();
+    }
+    if (e.ctrlKey && e.shiftKey && e.key == 'J') {
+        e.preventDefault();
+    }
+    if (e.ctrlKey && e.key == 'U') {
+        e.preventDefault();
+    }
+};
