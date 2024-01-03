@@ -144,7 +144,7 @@ async function Logout(){
 
 if(window.localStorage.getItem('token')){
         tol.value= window.localStorage.getItem('token');
-        token_verifier()
+        token_verifier(tol.value)
 }
 // window.onresize=function(){
 //     return a(this, void 0, void 0, function() {

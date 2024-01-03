@@ -1,10 +1,11 @@
-from seleniumwire import webdriver
+from seleniumwire import webdriver as wired
 from time import sleep
-from tkinter import messagebox
+from selenium import webdriver
+from tkinter import messagebox 
 import pyperclip
 
-def gtc():
-    driver = webdriver.Firefox()
+def gtf():
+    driver = wired.Chrome()
     tok=""
     driver.get('https://tesseractonline.com/')
     while True:
@@ -24,7 +25,8 @@ def gtc():
     for i in tok:
         ltok+=chr(ord(i)+3)
     return ltok
-tok=gtc()
+    
+tok=gtf()
 lg=messagebox.askquestion("Lisa","Hit yes to copy to key board")
 if lg=='yes':
     pyperclip.copy(tok)
